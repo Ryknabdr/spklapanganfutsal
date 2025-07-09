@@ -1,0 +1,154 @@
+/* Reset dan dasar */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #e6d7d7;
+    color: #333;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    background: linear-gradient(90deg, #3d1a03 0%, #532e04 100%);
+    color: white;
+    padding: 25px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+header h1 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+header p {
+    font-size: 14px;
+    font-weight: 300;
+}
+
+/* Section umum */
+section {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+/* Card */
+.card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.card-green {
+    border-left: 6px solid #0f766e;
+}
+
+.card-blue {
+    border-left: 6px solid #1d4ed8;
+}
+
+/* Form */
+form .form-group {
+    margin-bottom: 15px;
+}
+
+form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #444;
+}
+
+form input[type="number"],
+form input[type="text"] {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: border-color 0.3s;
+}
+
+form input:focus {
+    border-color: #800000;
+    outline: none;
+}
+
+/* Tombol */
+button {
+    background-color: #800000;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #a83232;
+}
+
+.form-button-container {
+    text-align: right;
+}
+
+.button-center {
+    text-align: center;
+}
+
+.button-right {
+    text-align: right;
+}
+
+/* Tabel */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+thead {
+    background-color: #800000;
+    color: white;
+}
+
+#lapangan-terbaik {
+    color: #3b3b3b;
+    background-color: #fde68a;
+}
+
+/* Ringkasan bobot */
+#ringkasan-bobot {
+    background-color: #f9f9f9;
+    font-size: 14px;
+}
+
+/* Responsive kecil */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 20px;
+    }
+
+    form .form-group {
+        flex-direction: column;
+    }
+
+    section {
+        padding: 10px;
+    }
+}

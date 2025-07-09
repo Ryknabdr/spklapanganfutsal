@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SPK Pemilihan Lapangan Futsal - Metode SAW</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/criteria-icons.css') }}" />
+</head>
+<body>
+    <header>
+        <h1>SPK Pemilihan Lapangan Futsal</h1>
+        <p>Sistem Pendukung Keputusan Menggunakan Metode SAW</p>
+        <div id="criteria-icons" class="criteria-icons">
+            <div class="criteria-item">
+                <span class="criteria-icon">💰</span>
+                <span class="criteria-label">Harga<br/><small>Cost</small></span>
+            </div>
+            <div class="criteria-item">
+                <span class="criteria-icon">📍</span>
+                <span class="criteria-label">Jarak<br/><small>Cost</small></span>
+            </div>
+            <div class="criteria-item">
+                <span class="criteria-icon">🏢</span>
+                <span class="criteria-label">Fasilitas<br/><small>Benefit</small></span>
+            </div>
+            <div class="criteria-item">
+                <span class="criteria-icon">😊</span>
+                <span class="criteria-label">Kenyamanan<br/><small>Benefit</small></span>
+            </div>
+            <div class="criteria-item">
+                <span class="criteria-icon">💡</span>
+                <span class="criteria-label">Pencahayaan<br/><small>Benefit</small></span>
+            </div>
+        </div>
+    </header>
+
+    <section id="description-section">
+        <h2>Tentang Web Ini</h2>
+        <p>Web ini adalah Sistem Pendukung Keputusan (SPK) untuk memilih lapangan futsal terbaik menggunakan Metode SAW (Simple Additive Weighting). 
+        Pengguna dapat memasukkan bobot kriteria dan alternatif lapangan, kemudian sistem akan menghitung dan menampilkan peringkat lapangan berdasarkan skor total.</p>
+    </section>
+
+    <section id="kriteria-section">
+        <div class="card card-green">
+            <h2>Input Bobot Kriteria</h2>
+            <form id="form-bobot">
+                <div class="form-group">
+                    <label for="harga">Harga:</label>
+                    <input type="number" id="harga" name="harga" step="0.01" min="0" max="1" required />
+                </div>
+                <div class="form-group">
+                    <label for="jarak">Jarak:</label>
+                    <input type="number" id="jarak" name="jarak" step="0.01" min="0" max="1" required />
+                </div>
+                <div class="form-group">
+                    <label for="fasilitas">Fasilitas:</label>
+                    <input type="number" id="fasilitas" name="fasilitas" step="0.01" min="0" max="1" required />
+                </div>
+                <div class="form-group">
+                    <label for="kenyamanan">Kenyamanan:</label>
+                    <input type="number" id="kenyamanan" name="kenyamanan" step="0.01" min="0" max="1" required />
+                </div>
+                <div class="form-group">
+                    <label for="pencahayaan">Pencahayaan:</label>
+                    <input type="number" id="pencahayaan" name="pencahayaan" step="0.01" min="0" max="1" required />
+                </div>
+                <div id="total-bobot-container" style="margin-top: 10px; font-weight: bold;">
+                    Total Bobot: <span id="total-bobot">0.00</span>
+                    <div id="bobot-warning" style="color: red; display: none;">
+                        * Total bobot harus sama dengan 1.0
+                    </div>
+                </div>
+                <div class="form-button-container button-right">
+                    <button type="submit">Simpan Bobot</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section id="alternatif-section">
+        <div class="card card-blue">
+            <h2>Input Data Lapangan Futsal</h2>
+            <form id="form-alternatif">
+                <div class="form-group">
+                    <label for="nama">Nama Lapangan:</label>
+                    <input type="text" id="nama" name="nama" required />
+                </div>
+                <div class="form-group">
+                    <label for="harga-alt">Harga:</label>
+                    <input type="number" id="harga-alt" name="harga" step="0.01" min="0" required />
+                </div>
+                <div class="form-group">
+                    <label for="jarak-alt">Jarak:</label>
+                    <input type="number" id="jarak-alt" name="jarak" step="0.01" min="0" required />
+                </div>
+                <div class="form-group">
+                    <label for="fasilitas-alt">Fasilitas:</label>
+                    <input type="number" id="fasilitas-alt" name="fasilitas" step="0.01" min="0" max="10" required />
+                </div>
+                <div class="form-group">
+                    <label for="kenyamanan-alt">Kenyamanan:</label>
+                    <input type="number" id="kenyamanan-alt" name="kenyamanan" step="0.01" min="0" max="10" required />
+                </div>
+                <div class="form-group">
+                    <label for="pencahayaan-alt">Pencahayaan:</label>
+                    <input type="number" id="pencahayaan-alt" name="pencahayaan" step="0.01" min="0" max="10" required />
+                </div>
+                <div class="form-button-container button-center">
+                    <button type="submit">Tambah Alternatif</button>
+                </div>
+            </form>
+        </div>
+
+    <section id="hasil-section">
+        <h2>Hasil Perhitungan SAW</h2>
+
+        <div id="ringkasan-bobot" style="margin-bottom: 15px; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+            <strong>Ringkasan Bobot Kriteria:</strong>
+            <div id="bobot-list" style="display: flex; justify-content: space-around; margin-top: 5px;">
+                <!-- Bobot kriteria akan ditampilkan di sini -->
+            </div>
+        </div>
+
+        <table id="hasil-table" border="1" style="width: 100%; border-collapse: collapse;">
+            <thead style="background-color: #68773a; color: white;">
+                <tr>
+                    <th style="width: 80px;">Peringkat</th>
+                    <th>Nama Lapangan</th>
+                    <th>Harga (N)</th>
+                    <th>Jarak (N)</th>
+                    <th>Fasilitas (N)</th>
+                    <th>Kenyamanan (N)</th>
+                    <th>Pencahayaan (N)</th>
+                    <th>Total Skor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Hasil akan ditampilkan di sini -->
+            </tbody>
+        </table>
+
+        <div id="lapangan-terbaik" style="margin-top: 15px; background-color: #facc15; padding: 15px; border-radius: 5px; font-weight: bold; text-align: center; display: none;">
+            <!-- Lapangan terbaik akan ditampilkan di sini -->
+        </div>
+
+        <button id="btn-hitung" style="margin-top: 15px;">Hitung SAW</button>
+        <button id="btn-reset" type="button" style="margin-top: 15px;">Reset Tabel</button>
+    </section>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
