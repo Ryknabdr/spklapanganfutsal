@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}SPK | SPK Futsal{% endblock %}
+{% block content %}
+<section id="spk-section" class="mb-4 mx-auto" style="max-width: 900px;">
+    <!-- Judul dan Ajakan -->
+    <div class="text-center mb-4">
+        <h2 class="fw-bold mb-2">Perhitungan SPK Futsal</h2>
+        <div class="lead mb-3">Masukkan data lapangan, atur bobot kriteria, dan dapatkan rekomendasi lapangan futsal terbaik untuk Anda!</div>
+    </div>
+    <!-- Kriteria Poster Paling Atas -->
+    {% include 'kriteria_section.html' %}
+    <!-- Section Alternatif -->
+    <div class="mb-4">
+        <div class="card border-primary shadow-sm">
+            <div class="card-header bg-primary text-white section-title"><span>🏟️</span> Input Data Lapangan Futsal</div>
+            <div class="card-body">
+                {% include 'alternatif_section.html' %}
+            </div>
+        </div>
+    </div>
+    <!-- Section Bobot -->
+    <div class="mb-4">
+        <div class="card border-warning shadow-sm">
+            <div class="card-header bg-warning text-dark section-title"><span>⚖️</span> Input Bobot Kriteria</div>
+            <div class="card-body">
+                {% include 'bobot_section.html' %}
+            </div>
+        </div>
+    </div>
+    <!-- Section Hasil -->
+    <div class="mb-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-warning section-title"><span>📊</span> Hasil Perhitungan SAW</div>
+            <div class="card-body">
+                {% include 'hasil_section.html' %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %} 

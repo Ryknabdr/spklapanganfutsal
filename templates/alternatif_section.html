@@ -1,0 +1,50 @@
+<!-- Alternatif Section -->
+<form id="form-alternatif">
+    <div class="row g-2">
+        <div class="col-md-4">
+            <label for="nama" class="form-label">Nama Lapangan:</label>
+            <input type="text" id="nama" name="nama" required class="form-control" />
+        </div>
+        <div class="col-md-2 col-6">
+            <label for="harga-alt" class="form-label">Harga:</label>
+            <input type="number" id="harga-alt" name="harga" step="0.01" min="0" required class="form-control" />
+        </div>
+        <div class="col-md-2 col-6">
+            <label for="jarak-alt" class="form-label">Jarak:</label>
+            <input type="number" id="jarak-alt" name="jarak" step="0.01" min="0" required class="form-control" />
+        </div>
+        <div class="col-md-2 col-6">
+            <label for="fasilitas-alt" class="form-label">Fasilitas:</label>
+            <input type="number" id="fasilitas-alt" name="fasilitas" step="0.01" min="0" max="10" required class="form-control" />
+        </div>
+        <div class="col-md-2 col-6">
+            <label for="kenyamanan-alt" class="form-label">Kenyamanan:</label>
+            <input type="number" id="kenyamanan-alt" name="kenyamanan" step="0.01" min="0" max="10" required class="form-control" />
+        </div>
+        <div class="col-md-2 col-6">
+            <label for="pencahayaan-alt" class="form-label">Pencahayaan:</label>
+            <input type="number" id="pencahayaan-alt" name="pencahayaan" step="0.01" min="0" max="10" required class="form-control" />
+        </div>
+    </div>
+    <div class="d-flex justify-content-center mt-3">
+        <button type="submit" class="btn btn-primary">Tambah Alternatif</button>
+    </div>
+</form>
+<div class="table-responsive mt-4">
+    <table class="table table-bordered table-striped align-middle text-center" id="tabel-alternatif">
+        <thead class="table-primary">
+            <tr>
+                <th>Nama Lapangan</th>
+                <th>Harga</th>
+                <th>Jarak</th>
+                <th>Fasilitas</th>
+                <th>Kenyamanan</th>
+                <th>Pencahayaan</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data alternatif akan diisi JS -->
+        </tbody>
+    </table>
+</div> 

@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block title %}Home | SPK Futsal{% endblock %}
+{% block content %}
+<!-- Home Section (Hero) -->
+<section id="home-section" class="home-hero-section mb-4 mt-4 mx-auto" style="max-width: 1100px;">
+    <div class="row align-items-center justify-content-center g-4 flex-wrap">
+        <div class="col-12 col-lg-8 text-center mx-auto">
+            <h1 class="display-4 fw-bold mb-3 hero-gradient-text">Temukan Lapangan <span class="text-gradient-green">Futsal</span> <span class="text-gradient-blue">Terbaik</span></h1>
+            <p class="lead mb-4">Sistem Pendukung Keputusan menggunakan metode <b>SAW</b> untuk membantu Anda memilih lapangan futsal yang paling sesuai dengan kebutuhan dan preferensi Anda.</p>
+            <div class="d-flex justify-content-center gap-3 mb-4 flex-wrap">
+                <a href="{{ url_for('spk') }}" class="btn btn-success btn-lg px-4">Mulai Analisis SPK</a>
+                <a href="{{ url_for('about') }}" class="btn btn-outline-primary btn-lg px-4">Pelajari Lebih Lanjut</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Mengapa Memilih FutsalSPK -->
+<section class="mb-4 mx-auto" style="max-width: 1100px;">
+    <h2 class="fw-bold text-center mb-3">Mengapa Memilih <span class="text-gradient-green">FutsalSPK</span>?</h2>
+    <p class="text-center mb-4">Sistem kami menggunakan teknologi terdepan untuk memberikan rekomendasi yang akurat dan sesuai dengan kebutuhan Anda.</p>
+    <div class="row g-4 justify-content-center">
+        <div class="col-12 col-md-4">
+            <div class="card feature-main-card h-100 text-center p-4">
+                <div class="feature-icon mb-2">🎯</div>
+                <div class="fw-bold mb-2">Kriteria Objektif</div>
+                <div class="text-muted small">Analisis berdasarkan lokasi, harga, fasilitas, dan kualitas lapangan untuk hasil yang akurat.</div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4">
+            <div class="card feature-main-card h-100 text-center p-4">
+                <div class="feature-icon mb-2">⚖️</div>
+                <div class="fw-bold mb-2">Metode SAW</div>
+                <div class="text-muted small">Menggunakan metode SAW yang terbukti untuk pengambilan keputusan multikriteria.</div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4">
+            <div class="card feature-main-card h-100 text-center p-4">
+                <div class="feature-icon mb-2">🏆</div>
+                <div class="fw-bold mb-2">Rekomendasi Terbaik</div>
+                <div class="text-muted small">Dapatkan ranking lapangan futsal terbaik sesuai dengan preferensi Anda.</div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Cara Kerja Sistem -->
+<section class="mb-4 mx-auto" style="max-width: 1100px;">
+    <h2 class="fw-bold text-center mb-3">Cara Kerja Sistem</h2>
+    <p class="text-center mb-4">Tiga langkah mudah untuk mendapatkan rekomendasi lapangan futsal terbaik</p>
+    <div class="row g-4 justify-content-center text-center">
+        <div class="col-12 col-md-4">
+            <div class="step-circle mb-2">01</div>
+            <div class="fw-bold mb-1">Tentukan Bobot Kriteria</div>
+            <div class="text-muted small">Atur tingkat kepentingan setiap kriteria sesuai preferensi Anda</div>
+        </div>
+        <div class="col-12 col-md-4">
+            <div class="step-circle mb-2">02</div>
+            <div class="fw-bold mb-1">Analisis Otomatis</div>
+            <div class="text-muted small">Sistem akan menganalisis semua data lapangan menggunakan metode SAW</div>
+        </div>
+        <div class="col-12 col-md-4">
+            <div class="step-circle mb-2">03</div>
+            <div class="fw-bold mb-1">Dapatkan Rekomendasi</div>
+            <div class="text-muted small">Terima ranking lapangan futsal terbaik dengan skor yang terukur</div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="mb-4 mx-auto text-center" style="max-width: 1100px;">
+    <div class="card bg-dark text-white p-5">
+        <h2 class="fw-bold mb-3">Siap Menemukan Lapangan Futsal Terbaik?</h2>
+        <p class="mb-4">Gunakan sistem SPK kami sekarang dan dapatkan rekomendasi yang tepat untuk kebutuhan futsal Anda.</p>
+        <a href="{{ url_for('spk') }}" class="btn btn-success btn-lg px-4">Mulai Sekarang <span class="ms-2">→</span></a>
+    </div>
+</section>
+{% endblock %} 

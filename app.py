@@ -20,8 +20,16 @@ def create_tables():
     db.session.commit()
 
 @app.route('/')
-def index():
-    return render_template('index.html')
+def home():
+    return render_template('home.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/spk')
+def spk():
+    return render_template('spk.html')
 
 @app.route('/api/kriteria', methods=['GET', 'POST'])
 def kriteria():
@@ -36,6 +44,19 @@ def kriteria():
                 k.bobot = float(item['bobot'])
         db.session.commit()
         return jsonify({'message': 'Bobot kriteria berhasil diperbarui'})
+
+@app.route('/api/kriteria/<int:id>', methods=['DELETE', 'PUT'])
+def kriteria_detail(id):
+    k = Kriteria.query.get_or_404(id)
+    if request.method == 'DELETE':
+        db.session.delete(k)
+        db.session.commit()
+        return jsonify({'message': 'Kriteria berhasil dihapus'})
+    elif request.method == 'PUT':
+        data = request.json
+        k.nama = data.get('nama', k.nama)
+        db.session.commit()
+        return jsonify({'message': 'Kriteria berhasil diupdate'})
 
 @app.route('/api/alternatif', methods=['GET', 'POST'])
 def alternatif():
@@ -63,6 +84,46 @@ def alternatif():
         db.session.add(a)
         db.session.commit()
         return jsonify({'message': 'Alternatif berhasil ditambahkan'})
+
+@app.route('/api/alternatif/<nama>', methods=['DELETE', 'PUT'])
+def alternatif_detail(nama):
+    try:
+        # Decode URL jika ada encoding
+        nama_decoded = nama.replace('%20', ' ').replace('+', ' ')
+        print(f"Trying to find alternatif with nama: '{nama_decoded}'")
+        
+        a = Alternatif.query.filter_by(nama=nama_decoded).first()
+        
+        if not a:
+            print(f"Alternatif '{nama_decoded}' not found")
+            # List all alternatif for debugging
+            all_alternatif = Alternatif.query.all()
+            print("All alternatif in database:")
+            for alt in all_alternatif:
+                print(f"  - '{alt.nama}'")
+            return jsonify({'error': 'Alternatif tidak ditemukan'}), 404
+            
+        print(f"Found alternatif: {a.nama}")
+            
+        if request.method == 'DELETE':
+            # Hapus data hasil yang terkait terlebih dahulu
+            hasil_terkait = Hasil.query.filter_by(alternatif_id=a.id).all()
+            for hasil in hasil_terkait:
+                db.session.delete(hasil)
+            
+            # Kemudian hapus alternatif
+            db.session.delete(a)
+            db.session.commit()
+            print(f"Successfully deleted alternatif: {a.nama}")
+            return jsonify({'message': 'Alternatif berhasil dihapus'})
+        elif request.method == 'PUT':
+            data = request.json
+            a.nama = data.get('nama', a.nama)
+            db.session.commit()
+            return jsonify({'message': 'Alternatif berhasil diupdate'})
+    except Exception as e:
+        print(f"Error in alternatif_detail: {str(e)}")
+        return jsonify({'error': str(e)}), 500
 
 @app.route('/api/hitung', methods=['GET'])
 def hitung():

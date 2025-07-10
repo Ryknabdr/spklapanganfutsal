@@ -1,0 +1,34 @@
+<!-- Bobot Section -->
+<form id="form-bobot">
+    <div class="row g-2">
+        <div class="col-md-2 col-6">
+            <label for="harga" class="form-label">Harga:</label>
+            <input type="number" id="harga" name="harga" step="0.01" min="0" max="1" required class="form-control" />
+        </div>
+        <div class="col-md-2 col-6">
+            <label for="jarak" class="form-label">Jarak:</label>
+            <input type="number" id="jarak" name="jarak" step="0.01" min="0" max="1" required class="form-control" />
+        </div>
+        <div class="col-md-2 col-6">
+            <label for="fasilitas" class="form-label">Fasilitas:</label>
+            <input type="number" id="fasilitas" name="fasilitas" step="0.01" min="0" max="1" required class="form-control" />
+        </div>
+        <div class="col-md-2 col-6">
+            <label for="kenyamanan" class="form-label">Kenyamanan:</label>
+            <input type="number" id="kenyamanan" name="kenyamanan" step="0.01" min="0" max="1" required class="form-control" />
+        </div>
+        <div class="col-md-2 col-6">
+            <label for="pencahayaan" class="form-label">Pencahayaan:</label>
+            <input type="number" id="pencahayaan" name="pencahayaan" step="0.01" min="0" max="1" required class="form-control" />
+        </div>
+    </div>
+    <div id="total-bobot-container" class="mt-3 fw-bold">
+        Total Bobot: <span id="total-bobot">0.00</span>
+        <div id="bobot-warning" class="text-danger d-none">
+            * Total bobot harus sama dengan 1.0
+        </div>
+    </div>
+    <div class="d-flex justify-content-end mt-3">
+        <button type="submit" class="btn btn-success">Simpan Bobot</button>
+    </div>
+</form> 

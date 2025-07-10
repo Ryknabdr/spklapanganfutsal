@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}SPK Futsal{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/criteria-icons.css') }}" />
+    {% block head %}{% endblock %}
+</head>
+<body class="bg-light">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark shadow-sm sticky-top" style="z-index: 1050; background: linear-gradient(90deg, #16c784 0%, #1e90ff 100%);">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="{{ url_for('home') }}">SPK Futsal</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link {% if request.endpoint == 'home' %}active{% endif %}" href="{{ url_for('home') }}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if request.endpoint == 'about' %}active{% endif %}" href="{{ url_for('about') }}">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if request.endpoint == 'spk' %}active{% endif %}" href="{{ url_for('spk') }}">SPK</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    {% block content %}{% endblock %}
+    <!-- Footer -->
+    <footer class="footer-gradient text-light py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5 class="fw-bold mb-3">🏟️ SPK Futsal</h5>
+                    <p class="text-muted mb-0">Sistem Pendukung Keputusan untuk memilih lapangan futsal terbaik menggunakan metode SAW (Simple Additive Weighting).</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h6 class="fw-bold mb-3">⚽ Fitur Utama</h6>
+                    <ul class="list-unstyled text-muted">
+                        <li class="mb-1">• Perhitungan SAW Otomatis</li>
+                        <li class="mb-1">• Kriteria Multi-Faktor</li>
+                        <li class="mb-1">• Ranking Lapangan Terbaik</li>
+                        <li class="mb-1">• Interface Modern & Responsif</li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h6 class="fw-bold mb-3">📊 Kriteria Evaluasi</h6>
+                    <ul class="list-unstyled text-muted">
+                        <li class="mb-1">• 💰 Harga Sewa</li>
+                        <li class="mb-1">• 🚗 Jarak Lokasi</li>
+                        <li class="mb-1">• 🏋️ Fasilitas</li>
+                        <li class="mb-1">• 😌 Kenyamanan</li>
+                        <li class="mb-1">• 💡 Pencahayaan</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 border-secondary">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0 text-muted">&copy; 2024 SPK Futsal. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0 text-muted">⚡ Powered by Flask | 🧠 Metode SAW</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html> 

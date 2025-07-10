@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% block title %}About | SPK Futsal{% endblock %}
+{% block content %}
+<!-- Judul dan Subjudul -->
+<section class="mb-4 mx-auto text-center" style="max-width: 1100px;">
+    <h1 class="fw-bold mb-2" style="font-size:2.2rem;">Tentang FutsalSPK</h1>
+    <div class="lead mb-4">Sistem Pendukung Keputusan untuk membantu Anda memilih lapangan futsal terbaik berdasarkan kriteria yang objektif dan terukur.</div>
+</section>
+<!-- Card Penjelasan SPK (tetap ada) -->
+<section class="mb-4 mx-auto" style="max-width: 900px;">
+    <div class="card shadow-sm p-4">
+        <h3 class="fw-bold mb-2">Apa itu Sistem Pendukung Keputusan?</h3>
+        <div class="mb-2">Sistem Pendukung Keputusan (SPK) atau Decision Support System (DSS) adalah sistem informasi yang dirancang untuk membantu dalam proses pengambilan keputusan dengan menganalisis data dan memberikan alternatif solusi terbaik.</div>
+        <div class="mb-2">Dalam konteks pemilihan lapangan futsal, SPK ini menganalisis berbagai kriteria seperti:</div>
+        <ul>
+            <li>Lokasi dan aksesibilitas</li>
+            <li>Harga sewa per jam</li>
+            <li>Kualitas dan kondisi lapangan</li>
+            <li>Fasilitas pendukung (parkir, kantin, toilet, dll)</li>
+            <li>Rating dan review dari pengguna</li>
+        </ul>
+    </div>
+</section>
+<!-- Keunggulan Sistem Kami -->
+<section class="mb-4 mx-auto" style="max-width: 1100px;">
+    <h2 class="fw-bold text-center mb-3">Keunggulan Sistem Kami</h2>
+    <div class="row g-4 justify-content-center">
+        <div class="col-12 col-md-4">
+            <div class="card feature-main-card h-100 text-center p-4">
+                <div class="feature-icon mb-2">🎯</div>
+                <div class="fw-bold mb-2">Kriteria Objektif</div>
+                <div class="text-muted small">Menggunakan kriteria yang objektif seperti lokasi, harga, fasilitas, dan kualitas lapangan untuk memberikan rekomendasi terbaik.</div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4">
+            <div class="card feature-main-card h-100 text-center p-4">
+                <div class="feature-icon mb-2">😊</div>
+                <div class="fw-bold mb-2">User-Friendly</div>
+                <div class="text-muted small">Interface yang mudah digunakan dan dipahami oleh semua kalangan untuk mendapatkan rekomendasi lapangan futsal.</div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4">
+            <div class="card feature-main-card h-100 text-center p-4">
+                <div class="feature-icon mb-2">🏆</div>
+                <div class="fw-bold mb-2">Akurat & Terpercaya</div>
+                <div class="text-muted small">Menggunakan metode SAW (Simple Additive Weighting) untuk hasil yang akurat dan terukur.</div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Card Besar Gradasi: Penjelasan Metode SAW -->
+<section class="mb-4 mx-auto" style="max-width: 1100px;">
+  <div class="p-4 rounded-4 shadow-lg position-relative" style="background: linear-gradient(90deg, #16c784 0%, #1e90ff 100%); min-height: 260px; color: #fff;">
+    <div class="row align-items-stretch">
+      <div class="col-md-8">
+        <h2 class="fw-bold mb-3">Metode SAW (Simple Additive Weighting)</h2>
+        <div class="mb-3">SAW adalah metode pengambilan keputusan multikriteria yang menjumlahkan nilai bobot dari setiap alternatif berdasarkan kriteria yang telah dinormalisasi. Metode ini digunakan untuk menentukan lapangan futsal terbaik secara objektif dan terukur.</div>
+        <ul class="mb-0" style="list-style:none; padding-left:0;">
+          <li>✔️ Normalisasi matriks keputusan</li>
+          <li>✔️ Pembobotan sesuai preferensi</li>
+          <li>✔️ Penjumlahan nilai akhir setiap alternatif</li>
+          <li>✔️ Ranking otomatis lapangan terbaik</li>
+        </ul>
+      </div>
+      <div class="col-md-4 d-flex align-items-center">
+        <div class="bg-gradient rounded-4 p-3 w-100" style="background: linear-gradient(120deg, #1e90ff 60%, #16c784 100%); min-height: 180px; color: #e0f7fa;">
+          <h5 class="fw-bold mb-2">Mengapa SAW?</h5>
+          <ul class="mb-0" style="list-style: disc inside;">
+            <li>Sederhana & mudah dipahami</li>
+            <li>Objektif & terukur</li>
+            <li>Mempertimbangkan  kriteria</li>
+            <li>Memberikan ranking yang jelas</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Visi & Misi -->
+<section class="mb-4 mx-auto" style="max-width: 1100px;">
+  <div class="row g-4 justify-content-center">
+    <div class="col-12 col-md-6">
+      <div class="card h-100 p-4">
+        <h4 class="fw-bold text-success mb-2">Visi Kami</h4>
+        <div class="text-muted">Menjadi platform terdepan dalam membantu masyarakat menemukan lapangan futsal terbaik dengan mudah, cepat, dan akurat melalui teknologi sistem pendukung keputusan.</div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="card h-100 p-4">
+        <h4 class="fw-bold text-success mb-2">Misi Kami</h4>
+        <ul class="text-muted mb-0">
+          <li>Menyediakan sistem rekomendasi yang objektif dan akurat</li>
+          <li>Memudahkan proses pencarian lapangan futsal</li>
+          <li>Memberikan informasi yang lengkap dan terpercaya</li>
+          <li>Mendukung perkembangan olahraga futsal di Indonesia</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %} 
